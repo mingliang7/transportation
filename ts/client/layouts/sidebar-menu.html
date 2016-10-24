@@ -1,0 +1,57 @@
+<template name="TS_sidebarMenu">
+    <li class="{{isActiveRoute name='ts.home'}}">
+        <a href="{{pathFor 'ts.home'}}">
+            <i class="fa fa-home"></i> <span>{{_ "ts.sidebarMenu.home"}}</span>
+        </a>
+    </li>
+
+    <!--Data-->
+    {{#if isInRole 'data-insert,data-update,data-remove' 'TS'}}
+        <li class="header"><i class="fa fa-database"></i> DATA</li>
+        <li class="{{isActiveRoute name='ts.customer'}}">
+            <a href="{{pathFor 'ts.customer'}}">
+                <i class="fa fa-circle-o"></i> <span>Customer</span>
+            </a>
+        </li>
+        <li class="{{isActiveRoute name='ts.order'}}">
+            <a href="{{pathFor 'ts.order'}}">
+                <i class="fa fa-circle-o"></i> <span>Order</span>
+            </a>
+        </li>
+    {{/if}}
+
+    <!--Report-->
+    {{#if isInRole 'reporter' 'TS'}}
+        <li class="header"><i class="fa fa-file-text-o"></i> REPORT</li>
+        <li class="{{isActiveRoute name='ts.invoiceReport'}}">
+            <a href="{{pathFor 'ts.invoiceReport'}}">
+                <i class="fa fa-file-o"></i> <span>Invoice</span>
+            </a>
+        </li>
+        <li class="{{isActiveRoute name='ts.orderReport'}}">
+            <a href="{{pathFor 'ts.orderReport'}}">
+                <i class="fa fa-file-o"></i> <span>Order</span>
+            </a>
+        </li>
+    {{/if}}
+
+    <!--Settings-->
+    {{#if isInRole 'setting' 'TS'}}
+        <li class="header"><i class="fa fa-cogs"></i> SETTING</li>
+        <li class="{{isActiveRoute name='core.exchange'}}">
+            <a href="{{pathFor 'core.exchange'}}">
+                <i class="fa fa-cog"></i> <span>{{_ "core.sidebarMenu.exchange"}}</span>
+            </a>
+        </li>
+        <li class="{{isActiveRoute name='ts.item'}}">
+            <a href="{{pathFor 'ts.item'}}">
+                <i class="fa fa-cog"></i> <span>{{_ "ts.sidebarMenu.item"}}</span>
+            </a>
+        </li>
+        <li class="{{isActiveRoute name='ts.lookupValue'}}">
+            <a href="{{pathFor 'ts.lookupValue'}}">
+                <i class="fa fa-cog"></i> <span>Lookup Value</span>
+            </a>
+        </li>
+    {{/if}}
+</template>
